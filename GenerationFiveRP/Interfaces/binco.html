@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Generation Five - Binco</title>
+    <link rel="stylesheet" type="text/css" href="./style/binco.css" />
+</head>
+
+<body>
+    <div class="prin">
+        <center><img src="./media/logo.png" alt="binco"></center>
+
+        <br /><div class="separateur"></div><br />
+
+
+        <table style="width:100%">
+            <tr><th colspan="2">Tee Shirt</th></tr>
+            <tr>
+                <td><button type="button">&lt;</button> n° <button type="button">&gt;</button></td>
+                <td><button type="button">&lt;</button> couleur <button type="button">&gt;</button></td>
+            </tr>
+
+            <tr><th colspan="2">Vest</th></tr>
+            <tr>
+                <td><button type="button">&lt;</button> n° <button type="button">&gt;</button></td>
+                <td><button type="button">&lt;</button> couleur <button type="button">&gt;</button></td>
+            </tr>
+            <tr><th colspan="2">Transparence</th></tr>
+            <tr>
+                <td><button type="button">&lt;</button> n° <button type="button">&gt;</button></td>
+                <td><button type="button">&lt;</button> couleur <button type="button">&gt;</button></td>
+            </tr>
+            <tr><th colspan="2">Pontalon</th></tr>
+            <tr>
+                <td><button type="button">&lt;</button> n° <button type="button">&gt;</button></td>
+                <td><button type="button">&lt;</button> couleur <button type="button">&gt;</button></td>
+            </tr>
+            <tr><th colspan="2">Chaussure</th></tr>
+            <tr>
+                <td><button type="button">&lt;</button> n° <button type="button">&gt;</button></td>
+                <td><button type="button">&lt;</button> couleur <button type="button">&gt;</button></td>
+            </tr>
+        </table><br />
+        <table style="width:100%">
+            <tr><td><button id="valider" type="button">Valider</button> </td><td> <button type="button">Annuler</button> </td><td> <button type="button">Reset</button></td></tr>
+        </table>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    document.getElementById("valider").addEventListener("click", function () {
+        resourceCall("sendInput");
+    });
+</script>

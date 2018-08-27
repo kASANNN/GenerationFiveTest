@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<meta>
+  <info name="Generation Five RP" author="Polidoor, Alvaro, Sumsun" type="gamemode" async="true"/>
+
+  <assembly ref="System.Xml.dll" />
+  <assembly ref="System.Xml.Linq.dll" />
+  <assembly ref="Newtonsoft.Json.dll" />
+  <assembly ref="System.Data.dll" />
+
+
+  <!-- Fichiers globaux -->
+  <script src="bienvenue.cs" type="server" lang="csharp" />
+  <script src="BlipManager.js" type ="client" lang="javascript" />
+  <script src="Chat.cs" type="server" lang="csharp" />
+  <script src="Connexion.cs" type="server" lang="csharp" />
+  <script src="Damage.cs" type ="server" lang="csharp" />
+  <script src="DimensionManager.cs" type="server" lang="csharp" />
+  <script src="Fonction.cs" type="server" lang="csharp" />
+  <script src="Money.cs" type="server" lang="csharp" />
+  <script src="MoneyDisplay.js" type="client" lang="javascript" />
+  <script src="server_subtitle.js" type ="client" lang="javascript" />
+  <script src="weather.cs" type="server" lang="csharp" />
+  <script src="World.cs" type="server" lang="csharp" />
+  <script src="Constantes.cs" type="server" lang="csharp" />
+  <script src="LogSystem.cs" type="server" lang="csharp" />
+  <script src="Info/ClefInfo.cs" type="server" lang="csharp" />
+  <script src="ServerEvent/KeyManager.cs" type="server" lang="csharp" />
+  <script src="keymanager.js" type ="client" lang="javascript" />
+  <script src="Info/AmendeInfo.cs" type="server" lang="csharp" />
+
+  <!-- Banque -->
+  <script src="Info/BanqueInfo.cs" type="server" lang="csharp" />
+ 
+  <!-- ATM -->
+  <script src="Info/ATMInfo.cs" type="server" lang="csharp" />
+
+  <!-- Commandes -->
+  <script src="Commandes/CommandesAdmin.cs" type="server" lang="csharp" />
+  <script src="Commandes/CommandesJoueur.cs" type="server" lang="csharp" />
+  <script src="Commandes/CommandesEntreprise.cs" type="server" lang="csharp" />
+  <script src="Commandes/CommandesFaction.cs" type="server" lang="csharp" />
+  <script src="Commandes/CommandesPolice.cs" type="server" lang="csharp" />
+  <script src="Commandes/CommandesMedecin.cs" type="server" lang="csharp" />
+
+  <!-- LSPD -->
+  <script src="Info/UnitesLSPDInfo.cs" type="server" lang="csharp" />
+
+  <!-- Création Personnage -->
+  <script src="CharacterCreator/CharCreator.cs" type="server" lang="csharp" />
+  <script src="CharacterCreator/CharCreator.js" type="client" lang="javascript" />
+
+  <!-- Server Event -->
+  <script src="ServerEvent/OnResourceStop.cs" type="server" lang="csharp" />
+  <script src="ServerEvent/OnResourceStart.cs" type="server" lang="csharp" />
+
+  <!-- Joueurs -->
+  <script src="Info/PlayerInfo.cs" type="server" lang="csharp" />
+  <script src="Inventaire.cs" type="server" lang="csharp" />
+
+  <!-- TextLabel -->
+  <script src="Info/TextLabelInfo.cs" type="server" lang="csharp" />
+  
+  <!-- Véhicules -->
+  <script src="compteur.js" type="client" lang="javascript" />
+  <script src="Info/VehiculeInfo.cs" type="server" lang="csharp" />
+  <script src="SpawnVehicule.cs" type="server" lang="csharp" />
+  <script src="Essence.cs" type="server" lang="csharp" />
+  <script src="Concess.cs" type="server" lang="csharp" />
+
+  <!-- Stations Essence -->
+  <script src="Info/PompesEssencesInfo.cs" type="server" lang="csharp" />
+  <script src="Info/StationsEssencesInfo.cs" type="server" lang="csharp" />
+
+  <!-- Auto-Ecole -->
+  <script src="AutoEcole.cs" type="server" lang="csharp" />
+  <script src="AutoEcole.js" type ="client" lang="javascript" />
+
+  <!-- Logements -->
+  <script src="Logement.cs" type="server" lang="csharp" />
+  <script src="Info/LogementInfo.cs" type="server" lang="csharp" />
+
+  <!-- Factions -->
+  <script src="Factions.cs" type="server" lang="csharp" />
+  <script src="FactionInfo.cs" type="server" lang="csharp" />
+
+  <!-- Payday -->
+  <script src="SystemePaye.cs" type="server" lang="csharp" />
+
+  <!-- Menus -->
+  <script src="CreationMenus.cs" type="server" lang="csharp" />
+  <script src="Menus.cs" type="server" lang="csharp" />
+  <script src="Menus.js" type="client" lang="javascript" />
+  <script src="armurerie.cs" type="server" lang="csharp" />
+  <script src="police.cs" type="server" lang="csharp" />
+  <script src="Magasin.cs" type="server" lang="csharp" />
+  <script src="Hackeur.cs" type="server" lang="csharp" />
+
+  <!-- SaveArmes -->
+  <script src="SaveArmes.cs" type="server" lang="csharp" />
+  <export class="SaveWeapons" function="Save" />
+  <export class="SaveWeapons" function="Load" />
+
+  <!-- JobConvoyeurs-->
+  <script src="convoyeur.cs" type="server" lang="csharp" />
+  <script src="convoyeur.js" type ="client" lang="javascript" />
+
+  <!-- FreeCam -->
+  <script src="FreeCam.cs" type="server" lang="csharp" />
+  <script src="FreeCamera.js" type ="client" lang="javascript" />
+  <script src="Cams.cs" type="server" lang="csharp" />
+  <script src="ServersideCamera.js" type="client" lang="javascript" />
+
+  <!-- Téléphone -->
+  <script src="Telephone.cs" type="server" lang="csharp" />
+
+  <!-- Coffres -->
+  <script src="Info/CoffreInfo.cs" type="server" lang="csharp" />
+  <script src="Info/ItemInfo.cs" type="server" lang="csharp" />
+
+  <!-- Système Mort -->
+  <script src="SystemeMort.cs" type="server" lang="csharp" />
+
+  <!-- DoorManager -->
+  <script src="doormanager.cs" type="server" lang="csharp" />
+  <script src="doormanager.js" type="client" lang="javascript" />
+  <export function="registerDoor" class="DoorManager" />
+  <export function="removeDoor" class="DoorManager" />
+  <export function="setDoorState" class="DoorManager" />
+  <export function="getCloseDoor" class="DoorManager" />
+  <export function="getAllCloseDoors" class="DoorManager" />
+  <export function="refreshDoorState" class="DoorManager" />
+  <export function="transitionDoor" class="DoorManager" />
+  <export function="setDebug" class="DoorManager" />
+
+  <!-- Mysql -->
+  <include resource="database" />
+
+  <!-- Restartdev -->
+  <include resource="Restartdev" />
+
+  <!-- Interfaces - CEF -->
+  <script src="Interfaces/maincef.js" type="client" lang="javascript" />
+
+  <file src="Interfaces/binco.html" />
+  <file src="Interfaces/cannabis.html" />
+  <file src="Interfaces/cannabis1.html" />
+  <file src="Interfaces/concess.html" />
+
+  <file src="Interfaces/style/connexion.css" />
+  <file src="Interfaces/style/binco.css" />
+  <file src="Interfaces/style/bootstrap.min.css" />
+  <file src="Interfaces/style/font-awesome.min.css" />
+  <file src="Interfaces/style/main.css" />
+  <file src="Interfaces/style/responsive.css" />
+  <file src="Interfaces/style/concess.css" />
+
+  <file src="Interfaces/media/logo.png" />
+  <file src="Interfaces/media/cart/product1.png" />
+  <file src="Interfaces/media/home/logo.png" />
+  <file src="Interfaces/media/home/searchicon.png" />
+  <file src="Interfaces/media/home/product1.png" />
+
+
+  <file src="Interfaces/fonts/ChaletLondonNineteenSixty.ttf" />
+  <file src="Interfaces/fonts/fontawesome-webfont.svg" />
+  <file src="Interfaces/fonts/fontawesome-webfont.ttf" />
+  <file src="Interfaces/fonts/fontawesome-webfont.woff" />
+  <file src="Interfaces/fonts/FontAwesome.otf" />
+  <file src="Interfaces/fonts/glyphicons-halflings-regular.svg" />
+  <file src="Interfaces/fonts/glyphicons-halflings-regular.woff" />
+
+
+  <file src="Interfaces/Connexion/js/app.js" />  
+  <file src="Interfaces/Connexion/connexion.html" />
+  <file src="Interfaces/Connexion/css/reset.css" />
+  <file src="Interfaces/Connexion/css/style.css" />
+  <file src="Interfaces/Connexion/css/bootstrap.min.css" />
+  <file src="Interfaces/Connexion/css/bootstrap-grid.min.css" />
+  <file src="Interfaces/Connexion/images/site-logo.png" />
+  <file src="Interfaces/Connexion/images/imageTest1.jpg" />
+  <file src="Interfaces/Connexion/images/imageTest2.jpg" />
+  <file src="Interfaces/Connexion/images/imageTest3.jpg" />
+  <file src="Interfaces/Connexion/fonts/fonts.css" />
+  <file src="Interfaces/Connexion/fonts/oswald-bold-webfont.woff" />
+  <file src="Interfaces/Connexion/fonts/oswald-bold-webfont.woff2" />
+  <file src="Interfaces/Connexion/fonts/oswald-extralight-webfont.woff" />
+  <file src="Interfaces/Connexion/fonts/oswald-extralight-webfont.woff2" />
+  <file src="Interfaces/Connexion/fonts/oswald-light-webfont.woff" />
+  <file src="Interfaces/Connexion/fonts/oswald-light-webfont.woff2" />
+  <file src="Interfaces/Connexion/fonts/oswald-medium-webfont.woff" />
+  <file src="Interfaces/Connexion/fonts/oswald-medium-webfont.woff2" />
+  <file src="Interfaces/Connexion/fonts/oswald-regular-webfont.woff" />
+  <file src="Interfaces/Connexion/fonts/oswald-regular-webfont.woff2" />
+  <file src="Interfaces/Connexion/fonts/oswald-semibold-webfont.woff" />
+  <file src="Interfaces/Connexion/fonts/oswald-semibold-webfont.woff2" />
+  <file src="Interfaces/Connexion/fa/css/font-awesome.min.css" />
+  <file src="Interfaces/Connexion/fa/fonts/fontawesome-webfont.woff" />
+  <file src="Interfaces/Connexion/fa/fonts/fontawesome-webfont.woff2" />
+
+  <file src="Interfaces/ATM/js/app.js" />
+  <file src="Interfaces/ATM/js/jquery-3.2.1.js" />
+  <file src="Interfaces/ATM/img/banklogo.png" />
+  <file src="Interfaces/ATM/css/reset.css" />
+  <file src="Interfaces/ATM/css/style.css" />
+  <file src="Interfaces/ATM/atm.html" />
+
+</meta>

@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{608ED0D1-03B8-4451-B643-AA35CDBF34C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GenerationFiveRP</RootNamespace>
+    <AssemblyName>GenerationFiveRP</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="GrandTheftMultiplayer.Server, Version=0.1.640.64, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\grandtheftmultiplayer.api.0.1.640.64\lib\net452\GrandTheftMultiplayer.Server.exe</HintPath>
+    </Reference>
+    <Reference Include="GrandTheftMultiplayer.Shared, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\grandtheftmultiplayer.api.0.1.640.64\lib\net452\GrandTheftMultiplayer.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="armurerie.cs" />
+    <Compile Include="AutoEcole.cs" />
+    <Compile Include="bienvenue.cs" />
+    <Compile Include="Cams.cs" />
+    <Compile Include="CharacterCreator\CharCreator.cs" />
+    <Compile Include="Chat.cs" />
+    <Compile Include="Commandes\CommandesAdmin.cs" />
+    <Compile Include="Commandes\CommandesEntreprise.cs" />
+    <Compile Include="Commandes\CommandesFaction.cs" />
+    <Compile Include="Commandes\CommandesJoueur.cs" />
+    <Compile Include="Commandes\CommandesMedecin.cs" />
+    <Compile Include="Commandes\CommandesPolice.cs" />
+    <Compile Include="Concess.cs" />
+    <Compile Include="Connexion.cs" />
+    <Compile Include="Constantes.cs" />
+    <Compile Include="convoyeur.cs" />
+    <Compile Include="CreationMenus.cs" />
+    <Compile Include="Damage.cs" />
+    <Compile Include="DimensionManager.cs" />
+    <Compile Include="doormanager.cs" />
+    <Compile Include="Essence.cs" />
+    <Compile Include="FactionInfo.cs" />
+    <Compile Include="Factions.cs" />
+    <Compile Include="Fonction.cs" />
+    <Compile Include="FreeCam.cs" />
+    <Compile Include="Hackeur.cs" />
+    <Compile Include="Info\AmendeInfo.cs" />
+    <Compile Include="Info\ATMInfo.cs" />
+    <Compile Include="Info\BanqueInfo.cs" />
+    <Compile Include="Info\ClefInfo.cs" />
+    <Compile Include="Info\CoffreInfo.cs" />
+    <Compile Include="Info\ItemInfo.cs" />
+    <Compile Include="Info\LogementInfo.cs" />
+    <Compile Include="Info\PlayerInfo.cs" />
+    <Compile Include="Info\PompesEssencesInfo.cs" />
+    <Compile Include="Info\StationsEssencesInfo.cs" />
+    <Compile Include="Info\TextLabelInfo.cs" />
+    <Compile Include="Info\UnitesLSPDInfo.cs" />
+    <Compile Include="Info\VehiculeInfo.cs" />
+    <Compile Include="Inventaire.cs" />
+    <Compile Include="JobEboueur.cs" />
+    <Compile Include="Logement.cs" />
+    <Compile Include="LogSystem.cs" />
+    <Compile Include="Magasin.cs" />
+    <Compile Include="Menus.cs" />
+    <Compile Include="Money.cs" />
+    <Compile Include="police.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveArmes.cs" />
+    <Compile Include="ServerEvent\KeyManager.cs" />
+    <Compile Include="ServerEvent\OnPlayerEnterVehicle.cs" />
+    <Compile Include="ServerEvent\OnResourceStart.cs" />
+    <Compile Include="ServerEvent\OnResourceStop.cs" />
+    <Compile Include="ServerEvent\OnVehicleDeath.cs" />
+    <Compile Include="SpawnVehicule.cs" />
+    <Compile Include="SystemeMort.cs" />
+    <Compile Include="SystemePaye.cs" />
+    <Compile Include="Telephone.cs" />
+    <Compile Include="weather.cs" />
+    <Compile Include="World.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AutoEcole.js" />
+    <Content Include="BlipManager.js" />
+    <Content Include="CharacterCreator\CharCreator.js" />
+    <Content Include="compteur.js" />
+    <Content Include="convoyeur.js" />
+    <Content Include="doormanager.js" />
+    <Content Include="FreeCamera.js" />
+    <Content Include="Interfaces\ATM\css\reset.css" />
+    <Content Include="Interfaces\ATM\css\style.css" />
+    <Content Include="Interfaces\ATM\img\banklogo.png" />
+    <Content Include="Interfaces\ATM\atm.html" />
+    <Content Include="Interfaces\ATM\js\app.js" />
+    <Content Include="Interfaces\ATM\js\jquery-3.2.1.js" />
+    <Content Include="Interfaces\binco.html" />
+    <Content Include="Interfaces\cannabis.html" />
+    <Content Include="Interfaces\cannabis1.html" />
+    <Content Include="Interfaces\coffre.html" />
+    <Content Include="Interfaces\concess.html" />
+    <Content Include="Interfaces\Connexion\connexion.html" />
+    <Content Include="Interfaces\Connexion\css\bootstrap-grid.min.css" />
+    <Content Include="Interfaces\Connexion\css\bootstrap.min.css" />
+    <Content Include="Interfaces\Connexion\css\reset.css" />
+    <Content Include="Interfaces\Connexion\css\style.css" />
+    <Content Include="Interfaces\Connexion\fa\css\font-awesome.min.css" />
+    <Content Include="Interfaces\Connexion\fa\HELP-US-OUT.txt" />
+    <Content Include="Interfaces\Connexion\fonts\fonts.css" />
+    <Content Include="Interfaces\Connexion\images\imageTest1.jpg" />
+    <Content Include="Interfaces\Connexion\images\imageTest2.jpg" />
+    <Content Include="Interfaces\Connexion\images\imageTest3.jpg" />
+    <Content Include="Interfaces\Connexion\images\site-logo.png" />
+    <Content Include="Interfaces\Connexion\js\app.js" />
+    <Content Include="Interfaces\fonts\fontawesome-webfont.svg" />
+    <Content Include="Interfaces\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Interfaces\maincef.js" />
+    <Content Include="Interfaces\media\cart\product1.png" />
+    <Content Include="Interfaces\media\home\logo.png" />
+    <Content Include="Interfaces\media\home\product1.png" />
+    <Content Include="Interfaces\media\home\searchicon.png" />
+    <Content Include="Interfaces\media\image\coffre\item\1.png" />
+    <Content Include="Interfaces\media\image\coffre\item\bankcard.png" />
+    <Content Include="Interfaces\media\image\coffre\item\fire.png" />
+    <Content Include="Interfaces\media\image\coffre\item\fuel.png" />
+    <Content Include="Interfaces\media\image\coffre\item\idcard.png" />
+    <Content Include="Interfaces\media\image\coffre\item\IWYZtB2.png" />
+    <Content Include="Interfaces\media\image\coffre\item\lic.png" />
+    <Content Include="Interfaces\media\image\coffre\item\parachute.png" />
+    <Content Include="Interfaces\media\image\coffre\item\rifle.png" />
+    <Content Include="Interfaces\media\image\coffre\item\simcard.png" />
+    <Content Include="Interfaces\media\image\coffre\item\smoke.png" />
+    <Content Include="Interfaces\media\image\coffre\item\sprunk.png" />
+    <Content Include="Interfaces\media\image\coffre\item\telephone.png" />
+    <Content Include="Interfaces\media\image\coffre\item\watch.png" />
+    <Content Include="Interfaces\media\logo.png" />
+    <Content Include="Interfaces\style\binco.css" />
+    <Content Include="Interfaces\style\bootstrap.min.css" />
+    <Content Include="Interfaces\style\coffre.css" />
+    <Content Include="Interfaces\style\concess.css" />
+    <Content Include="Interfaces\style\connexion.css" />
+    <Content Include="Interfaces\style\font-awesome.min.css" />
+    <Content Include="Interfaces\style\main.css" />
+    <Content Include="Interfaces\style\responsive.css" />
+    <Content Include="keymanager.js" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="Menus.js" />
+    <Content Include="meta.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="MoneyDisplay.js" />
+    <Content Include="ServersideCamera.js" />
+    <Content Include="server_subtitle.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Interfaces\Connexion\fa\fonts\fontawesome-webfont.woff" />
+    <None Include="Interfaces\Connexion\fa\fonts\fontawesome-webfont.woff2" />
+    <None Include="Interfaces\Connexion\fa\less\animated.less" />
+    <None Include="Interfaces\Connexion\fa\less\bordered-pulled.less" />
+    <None Include="Interfaces\Connexion\fa\less\core.less" />
+    <None Include="Interfaces\Connexion\fa\less\fixed-width.less" />
+    <None Include="Interfaces\Connexion\fa\less\font-awesome.less" />
+    <None Include="Interfaces\Connexion\fa\less\icons.less" />
+    <None Include="Interfaces\Connexion\fa\less\larger.less" />
+    <None Include="Interfaces\Connexion\fa\less\list.less" />
+    <None Include="Interfaces\Connexion\fa\less\mixins.less" />
+    <None Include="Interfaces\Connexion\fa\less\path.less" />
+    <None Include="Interfaces\Connexion\fa\less\rotated-flipped.less" />
+    <None Include="Interfaces\Connexion\fa\less\screen-reader.less" />
+    <None Include="Interfaces\Connexion\fa\less\stacked.less" />
+    <None Include="Interfaces\Connexion\fa\less\variables.less" />
+    <None Include="Interfaces\Connexion\fa\scss\font-awesome.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_animated.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_bordered-pulled.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_core.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_fixed-width.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_icons.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_larger.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_list.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_mixins.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_path.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_rotated-flipped.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_screen-reader.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_stacked.scss" />
+    <None Include="Interfaces\Connexion\fa\scss\_variables.scss" />
+    <None Include="Interfaces\Connexion\fonts\oswald-bold-webfont.woff" />
+    <None Include="Interfaces\Connexion\fonts\oswald-bold-webfont.woff2" />
+    <None Include="Interfaces\Connexion\fonts\oswald-extralight-webfont.woff" />
+    <None Include="Interfaces\Connexion\fonts\oswald-extralight-webfont.woff2" />
+    <None Include="Interfaces\Connexion\fonts\oswald-light-webfont.woff" />
+    <None Include="Interfaces\Connexion\fonts\oswald-light-webfont.woff2" />
+    <None Include="Interfaces\Connexion\fonts\oswald-medium-webfont.woff" />
+    <None Include="Interfaces\Connexion\fonts\oswald-medium-webfont.woff2" />
+    <None Include="Interfaces\Connexion\fonts\oswald-regular-webfont.woff" />
+    <None Include="Interfaces\Connexion\fonts\oswald-regular-webfont.woff2" />
+    <None Include="Interfaces\Connexion\fonts\oswald-semibold-webfont.woff" />
+    <None Include="Interfaces\Connexion\fonts\oswald-semibold-webfont.woff2" />
+    <None Include="Interfaces\fonts\ChaletLondonNineteenSixty.ttf" />
+    <None Include="Interfaces\fonts\fontawesome-webfont.ttf" />
+    <None Include="Interfaces\fonts\fontawesome-webfont.woff" />
+    <None Include="Interfaces\fonts\FontAwesome.otf" />
+    <None Include="Interfaces\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Interfaces\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Interfaces\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Interfaces\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Interfaces\fonts\OpenSans.ttf" />
+    <None Include="packages.config" />
+    <None Include="tsconfig.json" />
+    <None Include="Weather\data.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="types-gt-mp\Definitions\Declarations.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Contracts.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.GUI.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Javascript.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Javascript.ScriptContext.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Models.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Sound.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Sync.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Shared.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Shared.Math.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GTA.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GTA.Math.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GTA.Native.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GTA.NaturalMotion.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GTA.UI.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\index.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\Microsoft.ClearScript.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\NativeUI.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\NativeUI.UIMenu.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\NativeUI.UIMenuDynamicListItem.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\NativeUI.UIMenuItem.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\NativeUI.UIResText.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\System.Collections.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\System.Collections.Generic.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\System.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\System.Drawing.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\System.Windows.Forms.d.ts" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

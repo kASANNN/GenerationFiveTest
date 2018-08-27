@@ -1,0 +1,6 @@
+<meta>
+	<script src="Server/InteriorData.cs" type="server" lang="csharp" />	
+    <script src="Server/Main.cs" type="server" lang="csharp" />	
+	<script src="Client/main.js" type="client" lang="javascript" />
+	<assembly ref="Newtonsoft.Json.dll" />
+</meta>

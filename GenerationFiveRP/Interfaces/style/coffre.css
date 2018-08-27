@@ -1,0 +1,271 @@
+﻿@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans.ttf);
+}
+
+*[unselectable=on] {
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.inventory {
+    font-family: 'Open Sans';
+    width: 740px;
+    height: 600px;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    color: white;
+}
+
+    .inventory .header {
+        position: relative;
+    }
+
+        .inventory .header .name {
+            font-size: 24px;
+            border-bottom: thin solid white;
+        }
+
+        .inventory .header .navigation {
+            position: absolute;
+            right: 0;
+            top: 3px;
+        }
+
+            .inventory .header .navigation a {
+                display: inline-block;
+                color: white;
+                text-decoration: none;
+                border: thin solid white;
+                border-radius: 10px;
+                padding: 5px;
+                margin: 0 5px;
+                vertical-align: middle;
+                font-size: 14px;
+            }
+
+                .inventory .header .navigation a:hover {
+                    background: linear-gradient(45deg, #58b068, #5bb58e);
+                    border: thin solid transparent;
+                    color: black;
+                }
+
+    .inventory .section {
+        margin-top: 10px;
+    }
+
+        .inventory .section .gauche {
+            display: inline-block;
+            color: white;
+            margin: 5px;
+            width: 80px;
+            vertical-align: middle;
+        }
+
+        .inventory .section .droite {
+            display: inline-block;
+            color: white;
+            margin: 5px;
+            width: 80px;
+            vertical-align: middle;
+            float: right;
+        }
+
+    .inventory .blocking {
+        margin-top: 5px;
+        overflow: hidden;
+    }
+
+        .inventory .blocking div {
+            display: inline-block;
+        }
+
+        .inventory .blocking .three_block {
+			display:inline-block;
+            width: 270px;
+            height: 400px;
+            vertical-align: top;
+            overflow: auto;
+			white-space: dissscard;
+        }
+
+        .inventory .blocking .four_block {
+            width: 360px;
+            height: 400px;
+            vertical-align: top;
+            overflow: auto;
+        }
+
+        .inventory .blocking .block {
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            width: 80px;
+            height: 80px;
+            margin: 2.5px 5px;
+            position: relative;
+        }
+
+            .inventory .blocking .block img {
+                position: absolute;
+                width: 80px;
+                height: 80px;
+            }
+
+            .inventory .blocking .block .num {
+                position: absolute;
+                color: #1dd592;
+                right: 10px;
+                top: 14px;
+            }
+
+            .inventory .blocking .block .name {
+                position: absolute;
+                bottom: 22px;
+                font-size: 14px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .inventory .blocking .block .class {
+                position: absolute;
+                bottom: 10px;
+                font-size: 10px;
+                text-align: center;
+                width: 100%;
+                color: #1dd592;
+            }
+
+            .inventory .blocking .block .info {
+                position: absolute;
+                float: left;
+                margin: 0% 0% 0% 5%;
+            }
+
+            .inventory .blocking .block:hover {
+                background: linear-gradient(45deg, #58b068, #5bb58e);
+            }
+
+                .inventory .blocking .block:hover > img {
+                    //z-index: 1;
+                }
+
+                .inventory .blocking .block:hover .num {
+                    color: black;
+                }
+
+                .inventory .blocking .block:hover .name {
+                    color: white;
+                }
+
+                .inventory .blocking .block:hover .class {
+                    color: black;
+                }
+
+            .inventory .blocking .block .selected {
+                background: linear-gradient(45deg, #58b068, #5bb58e);
+            }
+
+
+        .inventory .blocking .inventory-cell {
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            width: 80px;
+            height: 80px;
+            margin: 2.5px 5px;
+            position: relative;
+            cursor: default;
+        }
+
+            .inventory .blocking .inventory-cell img {
+                position: absolute;
+                top: 12px;
+                left: 13px;
+                width: 24px;
+                height: 26px;
+            }
+
+            .inventory .blocking .inventory-cell .num {
+                position: absolute;
+                color: #1dd592;
+                right: 10px;
+                top: 14px;
+            }
+
+            .inventory .blocking .inventory-cell .name {
+                position: absolute;
+                bottom: 22px;
+                font-size: 14px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .inventory .blocking .inventory-cell .class {
+                position: absolute;
+                bottom: 10px;
+                font-size: 10px;
+                text-align: center;
+                width: 100%;
+                color: #1dd592;
+            }
+
+            .inventory .blocking .inventory-cell:hover {
+                background: linear-gradient(45deg, #58b068, #5bb58e);
+            }
+
+                .inventory .blocking .inventory-cell:hover .num {
+                    color: black;
+                }
+
+                .inventory .blocking .inventory-cell:hover .name {
+                    color: white;
+                }
+
+                .inventory .blocking .inventory-cell:hover .class {
+                    color: black;
+                }
+
+
+
+.inventory .blocking .gap {
+	width: 60px;
+	vertical-align: top;
+	text-align: center;
+}
+
+.inventory .blocking .gap .line {
+	margin: 5px;
+	height: 165px;
+	width: 1px;
+	background-color: white;
+}
+
+    .inventory .footer {
+        margin-top: 45px;
+        text-align: right;
+    }
+
+        .inventory .footer a {
+            display: inline-block;
+            color: white;
+            border: thin solid white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin: 5px 10px;
+        }
+
+            .inventory .footer a:hover {
+                background: linear-gradient(45deg, #58b068, #5bb58e);
+                border: thin solid transparent;
+                color: black;
+            }
+
+.customscroll-1::-webkit-scrollbar {
+    width: 0px;
+}

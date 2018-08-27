@@ -1,0 +1,561 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title>Inventaire</title>
+    <link rel='stylesheet' type='text/css' href='style/coffre.css'>
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/jquery-ui-1.12.1.min.js"></script>
+</head>
+<body style="-webkit-user-select: none;">
+    <div class="inventory" style="margin: auto;margin-top: 150px;">
+        <div class='header'>
+            <span class='name'>Inventaire</span>
+            <div class='navigation'>
+                <a onclick="DropItem()">Jeter</a>
+            </div>
+        </div>
+        <div class='section'>
+            <div class='droite'>Coffre ...</div>
+            <div class='gauche'>Poche</div>
+
+        </div>
+        <div class='blocking'>
+            <div class='three_block customscroll-1'>
+                <div class='block' id="1"><div class='name block_1name'>1</div></div>
+				<div class='block' id="2"><img src='media/image/coffre/item/1.png'><div class='name block_1name'>ID карта</div><div class='class block_1class'>Документ</div></div>
+				<div class='block' id="3"><div class='name block_1name'>3</div></div>
+				<div class='block' id="4"><div class='name block_1name'>4</div></div>
+				<div class='block' id="5"><div class='name block_1name'>5</div></div>
+				<div class='block' id="6"><div class='name block_1name'>6</div></div>
+				<div class='block' id="7"><div class='name block_1name'>7</div></div>
+				<div class='block' id="8"><div class='name block_1name'>8</div></div>
+				<div class='block' id="9"><div class='name block_1name'>9</div></div>
+				<div class='block' id="10"></div>
+				<div class='block' id="11"></div>
+            </div>
+            <div class='gap'>
+                <div class='line'></div>
+            </div>
+            <!--
+            -->
+            <div class='four_block customscroll-1'>
+                <div class='block' id="1"><div class='name block_1name'>1</div></div><!--
+                --><div class='block' id="2"><div class='name block_1name'>2</div></div><!--
+                --><div class='block' id="3"><div class='name block_1name'>3</div></div><!--
+                --><div class='block' id="4"><div class='name block_1name'>4</div></div><!--
+                --><div class='block' id="5"><div class='name block_1name'>5</div></div><!--
+                --><div class='block' id="6"><div class='name block_1name'>6</div></div><!--
+                --><div class='block' id="7"><div class='name block_1name'>7</div></div><!--
+                --><div class='block' id="8"><div class='name block_1name'>8</div></div><!--
+                --><div class='block' id="9"><div class='name block_1name'>9</div></div><!--
+                --><div class='block' id="10"></div><!--
+                --><div class='block' id="11"></div><!--
+            --></div>
+        </div>
+        <div class='footer'>
+            <a onclick="CloseInventar()">Fermer</a>
+        </div>
+    </div>
+    <script>
+        var selectedblock = -1;
+        var selectedshopblock = -1;
+        var IsBlockSelected = false;
+
+        var se1 = null;
+        var se2 = null;
+        var se3 = null;
+        var se4 = null;
+		var dropped = false;
+		var mooving = 0;
+		$(".three_block .block").draggable({
+			helper: 'clone',
+			revert: 'invalid',
+			//appendTo: '.four_block',
+			containment: '.blocking',
+			start: function(event, ui) {
+                dropped = false;
+				//$(this).hide();
+            },
+			/*stop: function(event, ui) {
+                if (dropped==true) {
+                    //$(this).remove();
+                } else {
+                    $(this).show();
+                }
+            }*/
+		});
+		$(".four_block .block").draggable({
+			helper: 'clone',
+			revert: 'invalid',
+			//appendTo: '.three_block',
+			containment: '.blocking',
+			start: function(event, ui) {
+                dropped = false;
+				//$(this).hide();
+            },
+			/*stop: function(event, ui) {
+
+            }*/
+		});
+		$( ".three_block" ).droppable({
+			accept: '.four_block .block',
+            drop: function(event, ui) {
+                //$.ui.ddmanager.current.cancelHelperRemoval = true;
+                //ui.helper.appendTo(this);
+				//$('.block').attr('id');				
+				$('.three_block').append(ui.draggable);
+				//ui.draggable.show();
+				//alert( this);
+				//console.log(ui);
+            }
+		});
+		$( ".four_block" ).droppable({
+			accept: '.three_block .block',
+            drop: function(event, ui) {
+                //$.ui.ddmanager.current.cancelHelperRemoval = true;
+                //ui.helper.appendTo(this);
+				$('.block').attr('id');
+				$('.four_block').append(ui.draggable);
+				//ui.draggable.show();
+				//alert( ui.draggable.attr("id") );
+            }
+		});
+		/*$( ".block" ).draggable({ 
+            //addClasses: false,
+            revert: 'invalid',
+			scroll: false,
+			containment: '.blocking',
+			start: function(event, ui) {
+                dropped = false;
+                $(this).addClass("hide");
+            },
+			stop: function(event, ui) {
+                if (dropped==true) {
+                    $(this).remove();
+                } else {
+                    $(this).removeClass("hide");
+                }
+            }
+		});
+		$( ".three_block, .four_block" ).droppable({
+			accept: '.block',
+            drop: function(event, ui) {
+                dropped = true;
+                //$.ui.ddmanager.current.cancelHelperRemoval = true;
+                ui.helper.appendTo(this);
+            }
+			});*/
+        function SetActivateBlock(num, n, name, cl) {
+            if (IsBlockSelected == false) {
+                IsBlockSelected = true
+                $("." + num).css(
+                    { 'background': 'linear-gradient(45deg, #58b068, #5bb58e)' }
+                );
+                $("." + n).css(
+                    { 'color': 'black' }
+                );
+                $("." + name).css(
+                    { 'color': 'white' }
+                );
+                $("." + cl).css(
+                    { 'color': 'black' }
+                );
+
+                se1 = num;
+                se2 = n;
+                se3 = name;
+                se3 = cl;
+
+                switch (num) {
+                    case 'block_1':
+                        selectedblock = 1;
+                        break;
+                    case 'block_2':
+                        selectedblock = 2;
+                        break;
+                    case 'block_3':
+                        selectedblock = 3;
+                        break;
+                    case 'block_4':
+                        selectedblock = 4;
+                        break;
+                    case 'block_5':
+                        selectedblock = 5;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else {
+                $(".buybutton").css(
+                    { 'display': 'none' }
+                );
+
+                IsBlockSelected = false
+                selectedblock = -1;
+                $("." + se1).css(
+                    { 'background': '' }
+                );
+                $("." + se2).css(
+                    { 'color': '' }
+                );
+                $("." + se3).css(
+                    { 'color': '' }
+                );
+                $("." + se4).css(
+                    { 'color': '' }
+                );
+
+                se1 = null;
+                se2 = null;
+                se3 = null;
+                se3 = null;
+            }
+        }
+
+        function SetActivateShop(num, n, name, cl) {
+            if (IsBlockSelected == false) {
+                IsBlockSelected = true;
+
+                $(".buybutton").css(
+                    { 'display': '' }
+                );
+                $("." + num).css(
+                    { 'background': 'linear-gradient(45deg, #58b068, #5bb58e)' }
+                );
+                $("." + n).css(
+                    { 'color': 'black' }
+                );
+                $("." + name).css(
+                    { 'color': 'white' }
+                );
+                $("." + cl).css(
+                    { 'color': 'black' }
+                );
+
+                se1 = num;
+                se2 = n;
+                se3 = name;
+                se3 = cl;
+
+                switch (num) {
+                    case 'shop_1':
+                        selectedshopblock = 1;
+                        break;
+                    case 'shop_2':
+                        selectedshopblock = 2;
+                        break;
+                    case 'shop_3':
+                        selectedshopblock = 3;
+                        break;
+                    case 'shop_4':
+                        selectedshopblock = 4;
+                        break;
+                    case 'shop_5':
+                        selectedshopblock = 5;
+                        break;
+                    case 'shop_6':
+                        selectedshopblock = 6;
+                        break;
+                    case 'shop_7':
+                        selectedshopblock = 7;
+                        break;
+                    case 'shop_8':
+                        selectedshopblock = 8;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else {
+                IsBlockSelected = false
+                selectedshopblock = -1;
+
+                $(".buybutton").css(
+                    { 'display': 'none' }
+                );
+                $("." + se1).css(
+                    { 'background': '' }
+                );
+                $("." + se2).css(
+                    { 'color': '' }
+                );
+                $("." + se3).css(
+                    { 'color': '' }
+                );
+                $("." + se4).css(
+                    { 'color': '' }
+                );
+
+                se1 = null;
+                se2 = null;
+                se3 = null;
+                se3 = null;
+            }
+        }
+
+        function BuyItem() {
+            if (IsBlockSelected == false) { return; }
+            if (se2 == null) { return; }
+            if (selectedshopblock == -1) { return; }
+
+            resourceCall('Inventory_Buy_Item', selectedshopblock);
+
+            IsBlockSelected = false
+            selectedshopblock = -1;
+            $("." + se1).css(
+                { 'background': '' }
+            );
+            $("." + se2).css(
+                { 'color': '' }
+            );
+            $("." + se3).css(
+                { 'color': '' }
+            );
+            $("." + se4).css(
+                { 'color': '' }
+            );
+
+            se1 = null;
+            se2 = null;
+            se3 = null;
+            se3 = null;
+        }
+
+        function UseItem() {
+            if (IsBlockSelected == false) { return; }
+            if (se2 == null) { return; }
+            if (selectedblock == -1) { return; }
+
+            resourceCall('Inventory_Use_Item', selectedblock);
+
+            IsBlockSelected = false
+            selectedblock = -1;
+            $("." + se1).css(
+                { 'background': '' }
+            );
+            $("." + se2).css(
+                { 'color': '' }
+            );
+            $("." + se3).css(
+                { 'color': '' }
+            );
+            $("." + se4).css(
+                { 'color': '' }
+            );
+
+            se1 = null;
+            se2 = null;
+            se3 = null;
+            se3 = null;
+        }
+
+        function DropItem() {
+            if (IsBlockSelected == false) { return; }
+            if (se2 == null) { return; }
+            if (selectedblock == -1) { return; }
+
+            resourceCall('Inventory_Drop_Item', selectedblock);
+
+            IsBlockSelected = false
+            selectedblock = -1;
+            $("." + se1).css(
+                { 'background': '' }
+            );
+            $("." + se2).css(
+                { 'color': '' }
+            );
+            $("." + se3).css(
+                { 'color': '' }
+            );
+            $("." + se4).css(
+                { 'color': '' }
+            );
+
+            se1 = null;
+            se2 = null;
+            se3 = null;
+            se3 = null;
+        }
+
+        function CloseInventar() {
+            resourceCall('CloseMainBrowser');
+        }
+
+        function UpdatePlayerInventory(s1, s1_k, s2, s2_k, s3, s3_k, s4, s4_k, s5, s5_k) {
+            $(".block_1").empty();
+            $(".block_2").empty();
+            $(".block_3").empty();
+            $(".block_4").empty();
+            $(".block_5").empty();
+
+            switch (s1) {
+                case 0:
+                    $(".block_1").empty("");
+                    break;
+                case 1:
+                    $(".block_1").append("<img src='img/invent/IWYZtB2.png'><div class='num block_1num'>" + s1_k + "</div><div class='name block_1name'>Еда</div><div class='class block_1class'>Пища</div>");
+                    break;
+                case 2:
+                    $(".block_1").append("<img src='img/invent/sprunk.png'><div class='num block_1num'>" + s1_k + "</div><div class='name block_1name'>Напиток</div><div class='class block_1class'>Пища</div>");
+                    break;
+                case 7:
+                    $(".block_1").append("<img src='img/invent/fuel.png'><div class='num block_1num'>" + s1_k + "</div><div class='name block_1name'>Канистра</div><div class='class block_1class'>Разное</div>");
+                    break;
+                case 8:
+                    $(".block_1").append("<img src='img/invent/smoke.png'><div class='num block_1num'>" + s1_k + "</div><div class='name block_1name'>Сигареты</div><div class='class block_1class'>Разное</div>");
+                    break;
+                case 9:
+                    $(".block_1").append("<img src='img/invent/fire.png'><div class='num block_1num'>" + s1_k + "</div><div class='name block_1name'>Зажигалка</div><div class='class block_1class'>Разное</div>");
+                    break;
+                default:
+                    $(".block_1").empty("");
+                    break;
+            }
+
+            switch (s2) {
+                case 0:
+                    $(".block_2").empty("");
+                    break;
+                case 1:
+                    $(".block_2").append("<img src='img/invent/IWYZtB2.png'><div class='num block_2num'>" + s2_k + "</div><div class='name block_2name'>Еда</div><div class='class block_2class'>Пища</div>");
+                    break;
+                case 2:
+                    $(".block_2").append("<img src='img/invent/sprunk.png'><div class='num block_2num'>" + s2_k + "</div><div class='name block_2name'>Напиток</div><div class='class block_2class'>Пища</div>");
+                    break;
+                case 7:
+                    $(".block_2").append("<img src='img/invent/fuel.png'><div class='num block_2num'>" + s2_k + "</div><div class='name block_2name'>Канистра</div><div class='class block_2class'>Разное</div>");
+                    break;
+                case 8:
+                    $(".block_2").append("<img src='img/invent/smoke.png'><div class='num block_2num'>" + s2_k + "</div><div class='name block_2name'>Сигареты</div><div class='class block_2class'>Разное</div>");
+                    break;
+                case 9:
+                    $(".block_2").append("<img src='img/invent/fire.png'><div class='num block_2num'>" + s2_k + "</div><div class='name block_2name'>Зажигалка</div><div class='class block_2class'>Разное</div>");
+                    break;
+                default:
+                    $(".block_2").empty("");
+                    break;
+            }
+
+            switch (s3) {
+                case 0:
+                    $(".block_3").empty("");
+                    break;
+                case 1:
+                    $(".block_3").append("<img src='img/invent/IWYZtB2.png'><div class='num block_3num'>" + s3_k + "</div><div class='name block_3name'>Еда</div><div class='class block_3class'>Пища</div>");
+                    break;
+                case 2:
+                    $(".block_3").append("<img src='img/invent/sprunk.png'><div class='num block_3num'>" + s3_k + "</div><div class='name block_3name'>Напиток</div><div class='class block_3class'>Пища</div>");
+                    break;
+                case 7:
+                    $(".block_3").append("<img src='img/invent/fuel.png'><div class='num block_3num'>" + s3_k + "</div><div class='name block_3name'>Канистра</div><div class='class block_3class'>Разное</div>");
+                    break;
+                case 8:
+                    $(".block_3").append("<img src='img/invent/smoke.png'><div class='num block_3num'>" + s3_k + "</div><div class='name block_3name'>Сигареты</div><div class='class block_3class'>Разное</div>");
+                    break;
+                case 9:
+                    $(".block_3").append("<img src='img/invent/fire.png'><div class='num block_3num'>" + s3_k + "</div><div class='name block_3name'>Зажигалка</div><div class='class block_3class'>Разное</div>");
+                    break;
+                default:
+                    $(".block_3").empty("");
+                    break;
+            }
+
+            switch (s4) {
+                case 0:
+                    $(".block_4").empty("");
+                    break;
+                case 1:
+                    $(".block_4").append("<img src='img/invent/IWYZtB2.png'><div class='num block_4num'>" + s4_k + "</div><div class='name block_4name'>Еда</div><div class='class block_4class'>Пища</div>");
+                    break;
+                case 2:
+                    $(".block_4").append("<img src='img/invent/sprunk.png'><div class='num block_4num'>" + s4_k + "</div><div class='name block_4name'>Напиток</div><div class='class block_4class'>Пища</div>");
+                    break;
+                case 7:
+                    $(".block_4").append("<img src='img/invent/fuel.png'><div class='num block_4num'>" + s4_k + "</div><div class='name block_4name'>Канистра</div><div class='class block_4class'>Разное</div>");
+                    break;
+                case 8:
+                    $(".block_4").append("<img src='img/invent/smoke.png'><div class='num block_4num'>" + s4_k + "</div><div class='name block_4name'>Сигареты</div><div class='class block_4class'>Разное</div>");
+                    break;
+                case 9:
+                    $(".block_4").append("<img src='img/invent/fire.png'><div class='num block_4num'>" + s4_k + "</div><div class='name block_4name'>Зажигалка</div><div class='class block_4class'>Разное</div>");
+                    break;
+                default:
+                    $(".block_4").empty("");
+                    break;
+            }
+
+            switch (s5) {
+                case 0:
+                    $(".block_5").empty("");
+                    break;
+                case 1:
+                    $(".block_5").append("<img src='img/invent/IWYZtB2.png'><div class='num block_5num'>" + s5_k + "</div><div class='name block_5name'>Еда</div><div class='class block_5class'>Пища</div>");
+                    break;
+                case 2:
+                    $(".block_5").append("<img src='img/invent/sprunk.png'><div class='num block_5num'>" + s5_k + "</div><div class='name block_5name'>Напиток</div><div class='class block_5class'>Пища</div>");
+                    break;
+                case 7:
+                    $(".block_5").append("<img src='img/invent/fuel.png'><div class='num block_5num'>" + s5_k + "</div><div class='name block_5name'>Канистра</div><div class='class block_5class'>Разное</div>");
+                    break;
+                case 8:
+                    $(".block_5").append("<img src='img/invent/smoke.png'><div class='num block_5num'>" + s5_k + "</div><div class='name block_5name'>Сигареты</div><div class='class block_5class'>Разное</div>");
+                    break;
+                case 9:
+                    $(".block_5").append("<img src='img/invent/fire.png'><div class='num block_5num'>" + s5_k + "</div><div class='name block_5name'>Зажигалка</div><div class='class block_5class'>Разное</div>");
+                    break;
+                default:
+                    $(".block_5").empty("");
+                    break;
+            }
+        }
+
+        function ClearShopItems() {
+            $(".shop_1").empty();
+            $(".shop_2").empty();
+            $(".shop_3").empty();
+            $(".shop_4").empty();
+            $(".shop_5").empty();
+            $(".shop_6").empty();
+            $(".shop_7").empty();
+            $(".shop_8").empty();
+            $(".shop_9").empty();
+            $(".shop_10").empty();
+            $(".shop_11").empty();
+            $(".shop_12").empty();
+            $(".shop_13").empty();
+            $(".shop_14").empty();
+            $(".shop_15").empty();
+        }
+
+        function LoadShopItems() {
+            $(".shop_1").empty();
+            $(".shop_2").empty();
+            $(".shop_3").empty();
+            $(".shop_4").empty();
+            $(".shop_5").empty();
+            $(".shop_6").empty();
+            $(".shop_7").empty();
+            $(".shop_8").empty();
+            $(".shop_9").empty();
+            $(".shop_10").empty();
+            $(".shop_11").empty();
+            $(".shop_12").empty();
+            $(".shop_13").empty();
+            $(".shop_14").empty();
+            $(".shop_15").empty();
+
+            $(".shop_1").append("<img src='img/invent/IWYZtB2.png'><div class='num shop_1num'>5$</div><div class='name shop_1name'>Еда</div><div class='class shop_1class'>Пища</div>");
+            $(".shop_2").append("<img src='img/invent/sprunk.png'><div class='num shop_2num'>2$</div><div class='name shop_2name'>Напиток</div><div class='class shop_2class'>Пища</div>");
+            $(".shop_3").append("<img src='img/invent/telephone.png'><div class='num shop_3num'>120$</div><div class='name shop_3name'>Телефон</div><div class='class shop_3class'>Разное</div>");
+            $(".shop_4").append("<img src='img/invent/simcard.png'><div class='num shop_4num'>40$</div><div class='name shop_4name'>Сим-Карта</div><div class='class shop_4class'>Разное</div>");
+            $(".shop_5").append("<img src='img/invent/watch.png'><div class='num shop_5num'>60$</div><div class='name shop_5name'>Часы</div><div class='class shop_5class'>Разное</div>");
+            $(".shop_6").append("<img src='img/invent/parachute.png'><div class='num shop_6num'>170$</div><div class='name shop_6name'>Парашют</div><div class='class shop_6class'>Разное</div>");
+            $(".shop_7").append("<img src='img/invent/fuel.png'><div class='num shop_7num'>65$</div><div class='name shop_7name'>Канистра</div><div class='class shop_7class'>Разное</div>");
+            $(".shop_8").append("<img src='img/invent/smoke.png'><div class='num shop_8num'>1$</div><div class='name shop_8name'>Сигареты</div><div class='class shop_8class'>Разное</div>");
+        }
+
+    </script>
+</body>
+</html>

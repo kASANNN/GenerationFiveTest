@@ -1,0 +1,31 @@
+﻿<meta>
+  <info name="Database Resource" description="Managing the database" author= "Miguel Santos (miguelantoniosantos.com)" version="1.0" type="script" async="true" />
+
+  <script src="database.cs" type="server" lang="csharp" />
+
+  <settings>
+    <setting name="database_server" value="51.255.33.91" default="51.255.33.91"/>
+    <setting name="database_port" value="3306" default="3306" />
+    <setting name="database_user" value="generationfive" default="generationfive"/>
+    <setting name="database_password" value="u3TdjuRs0c2tTm5T" default="u3TdjuRs0c2tTm5T"/>
+    <setting name="database_using_ssl" value="false" default="false" />
+    <setting name="database_ssl_pfx_file" value="" default="" />
+    <setting name="database_ssl_pfx_password" value="" default="" />
+    <setting name="database_database" value="generationfive" default="generationfive" />
+    <setting name="database_min_pool_size" value="1" default="1" />
+    <setting name="database_max_pool_size" value="20" default="20" />
+  </settings>
+
+  <export class="Database" function="executeQueryWithResult" />
+  <export class="Database" function="executePreparedQueryWithResult" />
+  <export class="Database" function="executeQuery" />
+  <export class="Database" function="executePreparedQuery" />
+  <export class="Database" function="GetRowsCount" />
+  <export class="Database" function="createDataTable" />
+  <export class="Database" function="updateDataTable" />
+  <export class="Database" function="closeDataTable" />
+
+  <assembly ref="System.Data.dll" />
+  <assembly ref="System.Xml.dll" />
+  <assembly ref="MySql.Data.dll" />
+</meta>
